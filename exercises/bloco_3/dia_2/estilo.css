@@ -1,0 +1,28 @@
+body {
+    font-size: 16px;
+  }
+  h1 {
+      font-size: 65px;
+      color: orange;
+      font-family: sans-serif;
+      font-style: oblique;
+      text-decoration: underline;
+  }
+  .pEul {
+      line-height: 20px;
+      background-color: palegreen;
+      text-align: center;
+  }
+  p {
+    font-size: 3em;
+    font-weight: 600;
+  }
+  #amarelo {
+    background-color: yellow;
+  }
+  #vermelho {
+    background-color: red;
+  }
+  #marrom {
+    background-color: brown;
+  }
