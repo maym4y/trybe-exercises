@@ -94,15 +94,15 @@ function numerosRomanos(algaritmo){
     }
     let numerosDepois = [];
     for (let j = 0; j < algaritmo.length; j += 1){
-        if (numerosAntes[j] === 0){
-            numerosAntes[j] = 0;
-        } else if (numerosAntes[j] < numerosAntes[j+1]) {
+        if (numerosAntes[j] !== 0){
+            if (numerosAntes[j] < numerosAntes[j+1]) {
             let elemento = numerosAntes[j+1] - numerosAntes[j];
             numerosDepois.push(elemento);
-            numerosAntes[j+1] = 0;
-            numerosAntes[j] = 0;
-        } else {
-            numerosDepois.push(numerosAntes[j]);
+            numerosAntes.splice(j+1, 1);
+            numerosAntes.splice(j, 1);
+            } else {
+            numerosDepois.push(numerosAntes[j]);i
+            }
         }
     }
     
