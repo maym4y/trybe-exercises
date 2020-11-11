@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      div {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+        let title = document.createElement('h1');
+        title.innerHTML = 'Exercício 5.2 - JavaScript DOM';
+        document.body.appendChild(title);
+
+        let div = document.createElement('div');
+        div.className = 'main-content';
+        document.body.appendChild(div);
+
+        let center = document.createElement('div');
+        center.className = 'center-content';
+        document.querySelector('.main-content').appendChild(center);
+
+        let texto = document.createElement('p');
+        texto.innerHTML = "Este é um texto criado para ocupar espaço dentro do site/exercício da Trybe. Qualquer discordância com ele, favor reclamar com Milton."
+        document.querySelector('.center-content').appendChild(texto);
+
+        let left = document.createElement('div');
+        left.className = 'left-content';
+        document.querySelector('.main-content').appendChild(left);
+
+        let right = document.createElement('div');
+        right.className = 'right-content';
+        document.querySelector('.main-content').appendChild(right);
+
+        let imagem = document.createElement('img');
+        imagem.className = 'small-image';
+        imagem.src = "https://picsum.photos/200";
+        document.querySelector('.left-content').appendChild(imagem);
+
+        let lista = document.createElement('ul');
+        document.querySelector('.right-content').appendChild(lista);
+        let itens = ['Um', 'Dois', 'Três', 'Quatro', 'Cinco', 'Seis', 'Sete', 'Oito', 'Nove', 'Dez'];
+        for (let i in itens){
+          item = document.createElement('li');
+          item.innerHTML = itens[i]
+          document.querySelector('ul').appendChild(item);
+        }
+
+        for (let j = 0; j < 3; j += 1){
+          h3 = document.createElement('h3');
+          h3.className = 'description';
+          document.querySelector('.main-content').appendChild(h3);
+        }
+
+        title.className = 'title';
+
+        document.querySelector('.main-content').removeChild(left);
+
+        right.style.marginRight = 'auto';
+
+        center.style.backgroundColor = 'green';
+        let dez = lista.lastElementChild;
+        let nove = lista.lastElementChild.previousElementSibling;
+        lista.removeChild(dez);
+        lista.removeChild(nove);
+
+    </script>
+  </body>
+</html>
