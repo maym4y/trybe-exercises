@@ -73,7 +73,7 @@ function createDaysOfTheWeek() {
   let botao = document.querySelector("#btn-holiday");
   botao.addEventListener("click", destacaFeriados);
   
-
+// Exercico 4
   function botaoSextou(string) {
     const botao = document.createElement('button');
     botao.id = 'btn-friday';
@@ -84,6 +84,7 @@ function createDaysOfTheWeek() {
 
 botaoSextou('Sexta-feira');
 
+// Exercício 5
 let fryday = undefined;
 function sextando() {
     let sexta = document.querySelectorAll('.friday')
@@ -107,21 +108,72 @@ function sextando() {
 let botaoSexta = document.querySelector('#btn-friday');
 botaoSexta.addEventListener('click', sextando);
 
+// Exercício 6
 let check = undefined;
 function darZoom(e) {
     if (check === false) {
     e.target.style.fontSize = '20px';
+    e.target.style.color = '#777';
     check = true;
     } else {
     e.target.style.fontSize = '30px';
+    e.target.style.color = 'green';
     check = false;
     }
-}
-
-function zoom(e) {
-    e.target.style.fontSize = '30px';
 }
 
 const monthDays = document.querySelector('#days');
 monthDays.addEventListener('mouseover', darZoom);
 monthDays.addEventListener('mouseout', darZoom);
+
+// Exercício 7
+
+function tarefaPersonalizada(string) {
+    let task = document.createElement('span');
+    task.innerHTML = string;
+    let div = document.querySelector('.my-tasks');
+    div.appendChild(task);
+}
+
+tarefaPersonalizada('Cozinhar');
+
+function legenda(cor) {
+    let newDiv = document.createElement('div');
+    newDiv.className = 'task';
+    newDiv.style.backgroundColor = cor;
+    let div = document.querySelector('.my-tasks');
+    div.appendChild(newDiv);
+}
+
+legenda('red');
+
+let checagem = undefined;
+function adicionaClasse(e) {
+    if (checagem === true) {
+        e.target.className = 'task';
+        checagem = false
+    } else {
+        e.target.className += ' selected';
+        checagem = true;
+    }
+}
+
+let item = document.querySelector('.task');
+item.addEventListener('click', adicionaClasse);
+
+
+function designaEvento(e) {
+    if (item.className === 'task selected'){
+        if (e.target.id === 'red') {
+        e.target.removeAttribute('id');
+        e.target.style.backgroundColor = 'rgb(238, 238, 238)';
+        } else {
+            e.target.style.backgroundColor = 'red';
+            e.target.id = 'red';
+        }
+    }
+
+}
+
+
+monthDays.addEventListener('click', designaEvento);
